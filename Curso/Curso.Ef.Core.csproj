@@ -6,6 +6,37 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Curso.Ef.Core.AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\netcoreapp3.1\Curso.Ef.Core.deps.json" />
+    <Content Include="bin\Debug\netcoreapp3.1\Curso.Ef.Core.runtimeconfig.dev.json" />
+    <Content Include="bin\Debug\netcoreapp3.1\Curso.Ef.Core.runtimeconfig.json" />
+    <Content Include="obj\Curso.Ef.Core.csproj.nuget.dgspec.json" />
+    <Content Include="obj\Debug\netcoreapp3.1\Curso.Ef.Core.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\netcoreapp3.1\Curso.Ef.Core.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Curso.Ef.Core.exe" />
+    <None Include="bin\Debug\netcoreapp3.1\Curso.Ef.Core.pdb" />
+    <None Include="obj\Curso.Ef.Core.csproj.nuget.g.props" />
+    <None Include="obj\Curso.Ef.Core.csproj.nuget.g.targets" />
+    <None Include="obj\Debug\netcoreapp3.1\apphost.exe" />
+    <None Include="obj\Debug\netcoreapp3.1\Curso.Ef.Core.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\Curso.Ef.Core.assets.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\Curso.Ef.Core.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\Curso.Ef.Core.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\Curso.Ef.Core.dll" />
+    <None Include="obj\Debug\netcoreapp3.1\Curso.Ef.Core.genruntimeconfig.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\Curso.Ef.Core.pdb" />
+    <None Include="obj\project.nuget.cache" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
   </ItemGroup>
 
