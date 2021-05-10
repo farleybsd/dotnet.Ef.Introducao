@@ -11,3 +11,21 @@ dotnet sln Curso.Ef.Intro.EP.sln add Curso\Curso.Ef.Core.csproj
 
 Instalando EfCore no Projeto
 dotnet add Curso\Curso.Ef.Core.csproj package Microsoft.EntityFrameworkCore.SqlServer --version 3.1.5
+
+3.0 Migrações 
+
+Install =>
+Microsoft.EntityFrameworkCore.Design version 3.1.5
+Microsoft.EntityFrameworkCore.Tools  version 3.1.5
+
+Instalando o Ef Cli
+dotnet tool install --global dotnet-ef --version 3.1.5
+
+verificando a instalaçao
+dotnet ef 
+
+Comandos Ef =>
+Get-Help EntityFramework 
+
+Fazeno uma Migrações
+Add-Migration 
