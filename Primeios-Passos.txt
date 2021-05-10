@@ -29,4 +29,8 @@ Get-Help EntityFramework
 
 Fazeno uma Migrações
 obs: Tem que estar na pasta do Projeto
-dotnet ef migrations add Primeira Migracao
+dotnet ef migrations add PrimeiraMigracao
+
+Gerando Script Sql
+obs: Tem que estar na pasta do Projeto
+dotnet ef migrations script -o .\Curso\PrimeiraMigracao.Sql
