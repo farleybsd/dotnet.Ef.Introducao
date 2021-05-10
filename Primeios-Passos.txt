@@ -28,4 +28,5 @@ Comandos Ef =>
 Get-Help EntityFramework 
 
 Fazeno uma Migrações
-Add-Migration 
+obs: Tem que estar na pasta do Projeto
+dotnet ef migrations add Primeira Migracao
