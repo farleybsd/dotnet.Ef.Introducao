@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Curso.Ef.Core.Data;
+using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Curso.Ef.Core
 {
@@ -6,7 +8,10 @@ namespace Curso.Ef.Core
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //Execultando Migrate em dev
+            using var db = new ApplicationContext();
+            db.Database.Migrate();
+            
         }
     }
 }
