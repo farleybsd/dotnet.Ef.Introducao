@@ -17,7 +17,8 @@ namespace Curso.Ef.Core
             //var existerMigracaoPedente = db.Database.GetPendingMigrations().Any();
 
             //InserirDados();
-            InserirDadosEmMassa();
+            //InserirDadosEmMassa();
+            ConsultarDados();
             Console.ReadKey();
         }
 
@@ -95,6 +96,22 @@ namespace Curso.Ef.Core
             var registros = db.SaveChanges();
 
             Console.WriteLine($"Total de Registro(s) {registros}");
+        }
+
+        private static void ConsultarDados()
+        {
+            using var db = new Data.ApplicationContext();
+
+            //var consultaporSintaxe = (from c in db.Clientes where c.Id > 0 select c).ToList();
+            //var consultaporMetodo = db.Clientes.AsNoTracking().Where(p => p.Id > 0).ToList();
+
+            var consultaporMetodo = db.Clientes.OrderBy(p=> p.Id).Where(p => p.Id > 0).ToList();
+
+            foreach (var cliente in consultaporMetodo)
+            {
+                Console.WriteLine($"Consultando Cliente:{cliente.Id}");
+                db.Clientes.Find(cliente.Id);
+            }
         }
     }
 }
