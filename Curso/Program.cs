@@ -16,7 +16,8 @@ namespace Curso.Ef.Core
             /// db.Database.Migrate();
             //var existerMigracaoPedente = db.Database.GetPendingMigrations().Any();
 
-            InserirDados();
+            //InserirDados();
+            InserirDadosEmMassa();
             Console.ReadKey();
         }
 
@@ -25,11 +26,12 @@ namespace Curso.Ef.Core
             var produto = new Produto
             {
                 Descricao = "Produto Teste",
-                CodigoBarras="123456987",
-                Valor=10m,
+                CodigoBarras = "123456987",
+                Valor = 10m,
                 TipoProduto = TipoProduto.MercadoriaParaRevenda,
-                Ativo=true
+                Ativo = true
             };
+
 
             using var db = new ApplicationContext();
             //db.Produtos.Add(produto);
@@ -40,6 +42,59 @@ namespace Curso.Ef.Core
             var registros = db.SaveChanges();
 
             Console.WriteLine($"Total Registro(s) {registros}");
+        }
+
+        private static void InserirDadosEmMassa()
+        {
+            var produto = new Produto
+            {
+                Descricao = "Produto Teste Em Massa",
+                CodigoBarras = "12345698789",
+                Valor = 10m,
+                TipoProduto = TipoProduto.MercadoriaParaRevenda,
+                Ativo = true
+            };
+
+            //var cliente = new Cliente
+            //{
+            //    Nome = "Farley Rufino",
+            //    Cep = "99999000",
+            //    Cidade = "Governador Valadares",
+            //    Estado = "Mg",
+            //    Telefone = "991057769"
+
+            //};
+
+            var listaClientes = new[]
+            {
+                new Cliente
+                {
+                Nome = "Farley Rufino",
+                Cep = "99999000",
+                Cidade = "Governador Valadares",
+                Estado = "Mg",
+                Telefone = "991057769"
+
+                },
+
+                new Cliente
+                {
+                Nome = "Farley Rufino Dois",
+                Cep = "99999000",
+                Cidade = "Governador Valadares",
+                Estado = "Mg",
+                Telefone = "991057769"
+
+                }
+            };
+
+            using var db = new Data.ApplicationContext();
+            //db.AddRange(produto,cliente);
+            db.Set<Cliente>().AddRange(listaClientes);
+            //db.Clientes.AddRange(listaClientes);
+            var registros = db.SaveChanges();
+
+            Console.WriteLine($"Total de Registro(s) {registros}");
         }
     }
 }

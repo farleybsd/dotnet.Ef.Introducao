@@ -48,3 +48,6 @@ dotnet ef migrations add AdicionarEmail -p .\curso\Curso.Ef.Core.csproj
 dotnet ef database update
 dotnet ef database update 20210510032902_PrimeiraMigracao -v
 dotnet ef migrations remove -p .\curso\Curso.Ef.Core.csproj
+
+6.0 Log EntityFrameworkCore
+Microsoft.Extensions.Logging.console --version 3.1.5
