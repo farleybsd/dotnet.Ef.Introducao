@@ -38,3 +38,7 @@ dotnet ef migrations script -o .\Curso\PrimeiraMigracao.Sql
 Persistindo Migrações no Banco
 obs: Tem que estar na pasta do Projeto
 dotnet ef database update -v
+
+4.0 Gerando Scripts SQL Idempotentes (Nao cria o que esta criado)
+obs: Tem que estar na pasta do Projeto
+dotnet ef migrations script -o .\Curso\Idempotentes.Sql --idempotent
