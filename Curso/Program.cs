@@ -1,6 +1,7 @@
 ﻿using Curso.Ef.Core.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 
 namespace Curso.Ef.Core
 {
@@ -10,7 +11,8 @@ namespace Curso.Ef.Core
         {
             //Execultando Migrate em dev
             using var db = new ApplicationContext();
-            db.Database.Migrate();
+            /// db.Database.Migrate();
+            var existerMigracaoPedente = db.Database.GetPendingMigrations().Any();
             
         }
     }
