@@ -21,10 +21,38 @@ namespace Curso.Ef.Core
             //InserirDadosEmMassa();
             //ConsultarDados();
             //CadastrarPedido();
-            ColsultarPeidoCarregamentoAdiamtado();
+            //ColsultarPeidoCarregamentoAdiamtado();
+            AtualizarDados();
             Console.ReadKey();
         }
 
+        private static void AtualizarDados()
+        {
+            using var db = new ApplicationContext();
+
+            // var cliente = db.Clientes.Find(1);
+
+            var cliente = new Cliente
+            {
+                Id=1
+            };
+
+            cliente.Nome = "Cliente Alterado Passo 2";
+
+            var clienteDesconectado = new
+            {
+                Nome = "Cliente Desconectado Passo 3",
+                Telefone = "123456"
+            };
+
+            db.Attach(cliente); // rastrear objeto desconectado
+
+            db.Entry(cliente).CurrentValues.SetValues(clienteDesconectado);
+
+            //db.Entry(cliente).State = EntityState.Modified;
+            //db.Clientes.Update(cliente); sem usar o metodo update ele salva apenas o que mudou e o update ele tenta mudar todos so campos
+            db.SaveChanges();
+        }
         private static void ColsultarPeidoCarregamentoAdiamtado()
         {
             using var db = new ApplicationContext();
