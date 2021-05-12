@@ -22,10 +22,22 @@ namespace Curso.Ef.Core
             //ConsultarDados();
             //CadastrarPedido();
             //ColsultarPeidoCarregamentoAdiamtado();
-            AtualizarDados();
+            //AtualizarDados();
+            RemoverRegistro();
             Console.ReadKey();
         }
 
+        private static void RemoverRegistro()
+        {
+            using var db = new ApplicationContext();
+            //var cliente = db.Clientes.Find(2);
+            //db.Remove(cliente);
+            //db.Remove(cliente);
+            //db.Entry(cliente).State = EntityState.Deleted;
+            var cliente = new Cliente() { Id = 3 };
+            db.Entry(cliente).State = EntityState.Deleted;
+            db.SaveChanges();
+        }
         private static void AtualizarDados()
         {
             using var db = new ApplicationContext();
