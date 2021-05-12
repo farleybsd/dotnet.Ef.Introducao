@@ -23,7 +23,7 @@ namespace Curso.Ef.Core
             //CadastrarPedido();
             //ColsultarPeidoCarregamentoAdiamtado();
             //AtualizarDados();
-            RemoverRegistro();
+            //RemoverRegistro();
             Console.ReadKey();
         }
 

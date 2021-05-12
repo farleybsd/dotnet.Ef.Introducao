@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Curso.Ef.Core.Data
@@ -25,6 +26,25 @@ namespace Curso.Ef.Core.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationContext).Assembly);
+            MapearPropirdadesEsquecidas(modelBuilder);
+        }
+
+        private void MapearPropirdadesEsquecidas(ModelBuilder model)
+        {
+            foreach (var entity in model.Model.GetEntityTypes())
+            {
+                var properties = entity.GetProperties().Where(p => p.ClrType == typeof(string));
+
+                foreach (var property in properties)
+                {
+                    if (string.IsNullOrEmpty(property.GetColumnType())
+                        && !property.GetMaxLength().HasValue)
+                    {
+                        property.SetMaxLength(100);
+                        property.SetColumnType("varchar(100)");
+                    }
+                }
+            }
         }
     }
 }
